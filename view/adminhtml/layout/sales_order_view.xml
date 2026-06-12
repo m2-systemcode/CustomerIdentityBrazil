@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="extra_customer_info">
+            <block class="Magento\Backend\Block\Template"
+                   name="systemcode_customeridentitybrazil_order_identity"
+                   template="SystemCode_CustomerIdentityBrazil::order/view/identity.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">
+                        SystemCode\CustomerIdentityBrazil\ViewModel\Adminhtml\Order\Identity
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

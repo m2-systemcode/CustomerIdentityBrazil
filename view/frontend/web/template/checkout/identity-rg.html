@@ -1,0 +1,12 @@
+<!-- ko if: showRg -->
+<div data-bind="attr: { class: 'field brazil-identity-rg' + (isRgRequired() ? ' _required required' : '') }">
+    <label class="label" for="checkout-rg"><span data-bind="i18n: 'RG'"></span></label>
+    <div class="control">
+        <input type="text"
+               id="checkout-rg"
+               name="checkout_rg"
+               class="input-text"
+               data-bind="value: rg, css: { 'required-entry': isRgRequired }, attr: { 'aria-required': isRgRequired, 'data-validate': isRgRequired() ? '{required:true}' : '' }">
+    </div>
+</div>
+<!-- /ko -->

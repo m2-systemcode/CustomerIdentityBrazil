@@ -1,0 +1,39 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \SystemCode\CustomerIdentityBrazil\ViewModel\CustomerIdentity $viewModel */
+
+$viewModel = $block->getViewModel();
+
+echo $block->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('SystemCode_CustomerIdentityBrazil::identity/fields-base.phtml')
+    ->setData('view_model', $viewModel)
+    ->toHtml();
+?>
+
+<script type="text/x-magento-init">
+    {
+        "#form-validate": {
+            "SystemCode_CustomerIdentityBrazil/js/validation-init": {}
+        },
+        "#cpf": {
+            "SystemCode_CustomerIdentityBrazil/js/widget/input-mask": {
+                "maskType": "cpf"
+            }
+        },
+        "#cnpj": {
+            "SystemCode_CustomerIdentityBrazil/js/widget/input-mask": {
+                "maskType": "cnpj"
+            }
+        },
+        "#taxvat": {
+            "SystemCode_CustomerIdentityBrazil/js/widget/taxvat-identity-mask": {}
+        },
+        "[data-role=type-individual], [data-role=type-corporation]": {
+            "SystemCode_CustomerIdentityBrazil/js/change-person-type": {
+                "changeFirstnameLabel": <?= $viewModel->shouldChangeFirstnameLabel() ? 'true' : 'false' ?>,
+                "changeLastnameLabel": <?= $viewModel->shouldChangeLastnameLabel() ? 'true' : 'false' ?>
+            }
+        }
+    }
+</script>

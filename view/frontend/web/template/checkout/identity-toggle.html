@@ -1,0 +1,26 @@
+<!-- ko if: checkoutIdentityConfig && checkoutIdentityConfig.isActive && isToggleVisible() -->
+<div class="field choice brazil-identity-person-type">
+    <div class="field choice">
+        <input type="radio"
+               class="radio"
+               name="checkout_person_type"
+               id="checkout-type-individual"
+               value="cpf"
+               data-bind="checked: personType">
+        <label class="label" for="checkout-type-individual">
+            <span data-bind="i18n: 'Individual Person'"></span>
+        </label>
+    </div>
+    <div class="field choice">
+        <input type="radio"
+               class="radio"
+               name="checkout_person_type"
+               id="checkout-type-corporation"
+               value="cnpj"
+               data-bind="checked: personType">
+        <label class="label" for="checkout-type-corporation">
+            <span data-bind="i18n: 'Corporation'"></span>
+        </label>
+    </div>
+</div>
+<!-- /ko -->

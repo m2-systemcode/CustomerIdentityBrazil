@@ -1,0 +1,12 @@
+<!-- ko if: showTaxvat -->
+<div data-bind="attr: { class: 'field brazil-identity-taxvat' + (isTaxvatRequired() ? ' _required required' : '') }">
+    <label class="label" data-bind="attr: { for: taxvatFieldId }">
+        <span data-bind="text: taxvatLabel"></span>
+    </label>
+    <div class="control">
+        <input type="text"
+               class="input-text"
+               data-bind="value: taxvat, css: taxvatValidationCss, attr: { id: taxvatFieldId, name: 'checkout_taxvat', 'aria-required': isTaxvatRequired }, afterRender: onTaxvatRender">
+    </div>
+</div>
+<!-- /ko -->
