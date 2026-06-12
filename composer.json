@@ -1,0 +1,23 @@
+{
+    "name": "systemcode/customer-identity-brazil",
+    "description": "Brazilian customer identity using Magento native taxvat and name fields.",
+    "type": "magento2-module",
+    "version": "2.0.0",
+    "license": [
+        "OSL-3.0"
+    ],
+    "require": {
+        "systemcode/base": "^2.0",
+        "systemcode/customer": "^1.0",
+        "magento/module-customer": "*",
+        "magento/module-checkout": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SystemCode\\CustomerIdentityBrazil\\": ""
+        }
+    }
+}

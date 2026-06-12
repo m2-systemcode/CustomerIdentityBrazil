@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customeridentitybrazil" translate="label" sortOrder="30"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customer Identity (Brazil)</label>
+            <tab>systemcode</tab>
+            <resource>SystemCode_CustomerIdentityBrazil::config</resource>
+            <group id="enhanced_notice" translate="label" sortOrder="1"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enhanced Edition</label>
+                <field id="enhanced_notice_message" translate="comment" type="label" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <comment><![CDATA[This base module stores CPF/CNPJ in Tax/VAT and company names
+in First Name / Last Name.
+To use separate CPF, CNPJ, Social Name and Trade Name fields with optional sync to core attributes,
+install SystemCode_CustomerIdentityBrazilEnhanced from https://github.com/m2-systemcode/CustomerIdentityBrazilEnhanced]]></comment>
+                </field>
+            </group>
+            <group id="general" translate="label comment" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <comment><![CDATA[Uses Magento Tax/VAT for CPF/CNPJ and First Name / Last Name
+for individual or company names.
+Enable Tax/VAT in Stores > Configuration > Customers > Customer Configuration > Name and Address Options.]]></comment>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable Brazilian customer identity fields and validation on the storefront.</comment>
+                </field>
+                <field id="customer_edit" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Can Edit</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\CustomerEdit</source_model>
+                    <comment>Choose which fields the customer can edit after the account is created.</comment>
+                    <depends>
+                        <field id="general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="customer_group_individual" translate="label comment" type="select" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Group (Individual)</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                    <comment>Assign individual customers to this group.</comment>
+                    <depends>
+                        <field id="general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="customer_group_corporation" translate="label comment" type="select" sortOrder="40"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Group (Corporation)</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                    <comment>Assign corporation customers to this group.</comment>
+                    <depends>
+                        <field id="general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="individual" translate="label comment" sortOrder="20"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Individual (CPF)</label>
+                <comment><![CDATA[CPF is stored in the native Tax/VAT customer attribute.
+First Name and Last Name keep the standard individual labels.]]></comment>
+                <depends>
+                    <field id="general/enabled">1</field>
+                </depends>
+                <field id="taxvat" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CPF (Tax/VAT)</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <comment>Visibility and validation for CPF using the Tax/VAT field.</comment>
+                </field>
+                <field id="rg" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>RG</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazil\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the RG customer attribute.</comment>
+                </field>
+            </group>
+            <group id="corporation" translate="label comment" sortOrder="30"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Corporation (CNPJ)</label>
+                <comment><![CDATA[CNPJ is stored in the native Tax/VAT customer attribute.
+First Name is used as Social Name (Razão Social) and Last Name as Trade Name (Nome Fantasia).]]></comment>
+                <depends>
+                    <field id="general/enabled">1</field>
+                </depends>
+                <field id="taxvat" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CNPJ (Tax/VAT)</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <comment>Visibility and validation for CNPJ using the Tax/VAT field.</comment>
+                </field>
+                <field id="ie" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>IE</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazil\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the IE customer attribute.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

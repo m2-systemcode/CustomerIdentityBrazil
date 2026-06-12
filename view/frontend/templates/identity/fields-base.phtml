@@ -1,0 +1,55 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \SystemCode\CustomerIdentityBrazil\ViewModel\CustomerIdentity $viewModel */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$viewModel = $block->getViewModel();
+$personType = $viewModel->getPersonType();
+$rgFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('rg'));
+$ieFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('ie'));
+?>
+<?php if ($viewModel->showIndividualSection()): ?>
+    <div class="fieldset brazil-identity-individual"
+         data-container="type-individual"<?= $personType === 'cnpj' ? ' style="display:none"' : '' ?>>
+        <?php if ($viewModel->isFieldVisible('rg')): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $rgFieldClass ?>">
+                <label class="label" for="rg"><span><?= $escaper->escapeHtml(__('RG')) ?></span></label>
+                <div class="control">
+                    <input type="text"
+                           id="rg"
+                           name="rg"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('rg')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('RG')) ?>"
+                           class="input-text<?= $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('rg')) ?>"
+                           <?php if ($viewModel->isFieldRequired('rg')): ?>
+                           data-validate="{required:true}"
+                           aria-required="true"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($viewModel->showCorporationSection()): ?>
+    <div class="fieldset brazil-identity-corporation"
+         data-container="type-corporation"<?= $personType === 'cpf' ? ' style="display:none"' : '' ?>>
+        <?php if ($viewModel->isFieldVisible('ie')): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $ieFieldClass ?>">
+                <label class="label" for="ie"><span><?= $escaper->escapeHtml(__('IE')) ?></span></label>
+                <div class="control">
+                    <input type="text"
+                           id="ie"
+                           name="ie"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('ie')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('IE')) ?>"
+                           class="input-text<?= $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('ie')) ?>"
+                           <?php if ($viewModel->isFieldRequired('ie')): ?>
+                           data-validate="{required:true}"
+                           aria-required="true"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

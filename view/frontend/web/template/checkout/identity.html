@@ -1,0 +1,128 @@
+<!-- ko if: checkoutIdentityConfig && checkoutIdentityConfig.isActive -->
+<div class="brazil-identity-checkout">
+    <!-- ko if: isToggleVisible() -->
+    <div class="field choice brazil-identity-person-type">
+        <div class="field choice">
+            <input type="radio"
+                   class="radio"
+                   name="checkout_person_type"
+                   id="checkout-type-individual"
+                   value="cpf"
+                   data-bind="checked: personType">
+            <label class="label" for="checkout-type-individual">
+                <span data-bind="i18n: 'Individual Person'"></span>
+            </label>
+        </div>
+        <div class="field choice">
+            <input type="radio"
+                   class="radio"
+                   name="checkout_person_type"
+                   id="checkout-type-corporation"
+                   value="cnpj"
+                   data-bind="checked: personType">
+            <label class="label" for="checkout-type-corporation">
+                <span data-bind="i18n: 'Corporation'"></span>
+            </label>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <!-- ko if: isIndividualVisible() -->
+    <div class="brazil-identity-individual" data-container="type-individual">
+        <!-- ko if: isFieldVisible('cpf') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('cpf'), _required: isFieldRequired('cpf') }">
+            <label class="label" for="checkout-cpf"><span data-bind="i18n: 'CPF'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-cpf"
+                       class="input-text"
+                       data-bind="value: cpf, afterRender: function(element) { onIdentityFieldRender(element, 'cpf'); }, attr: { 'aria-required': isFieldRequired('cpf') }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: isFieldVisible('rg') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('rg'), _required: isFieldRequired('rg') }">
+            <label class="label" for="checkout-rg"><span data-bind="i18n: 'RG'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-rg"
+                       class="input-text"
+                       data-bind="value: rg, attr: { 'aria-required': isFieldRequired('rg') }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: isFieldVisible('taxvat') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('taxvat'), _required: isFieldRequired('taxvat') }">
+            <label class="label" for="checkout-taxvat-cpf"><span data-bind="i18n: 'CPF'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-taxvat-cpf"
+                       class="input-text"
+                       data-bind="value: taxvat, afterRender: function(element) { onIdentityFieldRender(element, 'taxvat'); }, attr: { 'aria-required': isFieldRequired('taxvat') }">
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+
+    <!-- ko if: isCorporationVisible() -->
+    <div class="brazil-identity-corporation" data-container="type-corporation">
+        <!-- ko if: isFieldVisible('socialname') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('socialname'), _required: isFieldRequired('socialname') }">
+            <label class="label" for="checkout-socialname"><span data-bind="i18n: 'Social Name'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-socialname"
+                       class="input-text"
+                       data-bind="value: socialname, attr: { 'aria-required': isFieldRequired('socialname') }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: isFieldVisible('tradename') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('tradename'), _required: isFieldRequired('tradename') }">
+            <label class="label" for="checkout-tradename"><span data-bind="i18n: 'Trade Name'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-tradename"
+                       class="input-text"
+                       data-bind="value: tradename, attr: { 'aria-required': isFieldRequired('tradename') }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: isFieldVisible('cnpj') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('cnpj'), _required: isFieldRequired('cnpj') }">
+            <label class="label" for="checkout-cnpj"><span data-bind="i18n: 'CNPJ'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-cnpj"
+                       class="input-text"
+                       data-bind="value: cnpj, afterRender: function(element) { onIdentityFieldRender(element, 'cnpj'); }, attr: { 'aria-required': isFieldRequired('cnpj') }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: isFieldVisible('ie') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('ie'), _required: isFieldRequired('ie') }">
+            <label class="label" for="checkout-ie"><span data-bind="i18n: 'IE'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-ie"
+                       class="input-text"
+                       data-bind="value: ie, attr: { 'aria-required': isFieldRequired('ie') }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: isFieldVisible('taxvat') -->
+        <div class="field" data-bind="css: { required: isFieldRequired('taxvat'), _required: isFieldRequired('taxvat') }">
+            <label class="label" for="checkout-taxvat-cnpj"><span data-bind="i18n: 'CNPJ'"></span></label>
+            <div class="control">
+                <input type="text"
+                       id="checkout-taxvat-cnpj"
+                       class="input-text"
+                       data-bind="value: taxvat, afterRender: function(element) { onIdentityFieldRender(element, 'taxvat'); }, attr: { 'aria-required': isFieldRequired('taxvat') }">
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</div>
+<!-- /ko -->

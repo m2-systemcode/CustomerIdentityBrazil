@@ -1,0 +1,29 @@
+.brazil-identity-person-type .field.choice {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.brazil-identity-individual,
+.brazil-identity-corporation {
+    margin-bottom: 0;
+}
+
+.form-create-account .brazil-identity-individual .field.required > .label:after,
+.form-create-account .brazil-identity-individual .field._required > .label:after,
+.form-create-account .brazil-identity-corporation .field.required > .label:after,
+.form-create-account .brazil-identity-corporation .field._required > .label:after,
+.form-edit-account .brazil-identity-individual .field.required > .label:after,
+.form-edit-account .brazil-identity-individual .field._required > .label:after,
+.form-edit-account .brazil-identity-corporation .field.required > .label:after,
+.form-edit-account .brazil-identity-corporation .field._required > .label:after {
+    content: '*';
+    color: #e02b27;
+    font-size: 1.2rem;
+    margin: 0 0 0 5px;
+}
+
+.form-create-account .brazil-identity-person-type,
+.form-edit-account .brazil-identity-person-type,
+.brazil-identity-checkout .brazil-identity-person-type {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,12 @@
+<input class="input-text" type="text" data-bind="
+    value: value,
+    valueUpdate: 'keyup',
+    hasFocus: focused,
+    afterRender: onElementRender,
+    attr: {
+        name: inputName,
+        placeholder: placeholder,
+        'aria-describedby': noticeId,
+        id: uid,
+        disabled: disabled
+    }">

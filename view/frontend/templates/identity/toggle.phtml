@@ -1,0 +1,51 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \SystemCode\CustomerIdentityBrazil\ViewModel\CustomerIdentity $viewModel */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$viewModel = $block->getViewModel();
+
+if (!$viewModel->shouldRender()) {
+    return;
+}
+
+if (!$viewModel->shouldShowPersonTypeToggle()) {
+    ?>
+    <input type="hidden" name="person_type" value="<?= $escaper->escapeHtmlAttr($viewModel->getPersonType()) ?>"/>
+    <?php
+    return;
+}
+
+$personType = $viewModel->getPersonType();
+$canChange = $viewModel->canChangePersonType() || $viewModel->getCustomerValue('person_type') === '';
+?>
+<div class="field choice brazil-identity-person-type">
+    <div class="field choice">
+        <input type="radio"
+               value="cpf"
+               name="person_type"
+               id="type-individual"
+               data-role="type-individual"
+               class="radio person_type"
+               title="<?= $escaper->escapeHtmlAttr(__('Individual Person')) ?>"
+               <?= ($personType === 'cpf' ? 'checked="checked"' : '') ?>
+               <?= (!$canChange && $personType !== 'cpf' ? 'disabled="disabled"' : '') ?> />
+        <label class="label" for="type-individual">
+            <span><?= $escaper->escapeHtml(__('Individual Person')) ?></span>
+        </label>
+    </div>
+    <div class="field choice">
+        <input type="radio"
+               value="cnpj"
+               name="person_type"
+               id="type-corporation"
+               data-role="type-corporation"
+               class="radio person_type"
+               title="<?= $escaper->escapeHtmlAttr(__('Corporation')) ?>"
+               <?= ($personType === 'cnpj' ? 'checked="checked"' : '') ?>
+               <?= (!$canChange && $personType !== 'cnpj' ? 'disabled="disabled"' : '') ?> />
+        <label class="label" for="type-corporation">
+            <span><?= $escaper->escapeHtml(__('Corporation')) ?></span>
+        </label>
+    </div>
+</div>

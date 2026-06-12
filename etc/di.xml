@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SystemCode\CustomerIdentityBrazil\Api\ConfigInterface"
+                type="SystemCode\CustomerIdentityBrazil\Model\Config"/>
+    <preference for="SystemCode\CustomerIdentityBrazil\Api\Data\QuoteIdentityDataInterface"
+                type="SystemCode\CustomerIdentityBrazil\Model\Data\QuoteIdentityData"/>
+    <preference for="SystemCode\CustomerIdentityBrazil\Api\GuestCartIdentityManagementInterface"
+                type="SystemCode\CustomerIdentityBrazil\Model\Checkout\GuestCartIdentityManagement"/>
+    <preference for="SystemCode\CustomerIdentityBrazil\Api\CartIdentityManagementInterface"
+                type="SystemCode\CustomerIdentityBrazil\Model\Checkout\CartIdentityManagement"/>
+    <type name="Magento\Customer\Block\Widget\Taxvat">
+        <plugin name="systemcode_customeridentitybrazil_taxvat"
+                type="SystemCode\CustomerIdentityBrazil\Plugin\Block\Widget\TaxvatPlugin"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\Framework\View\Element\Template">
+        <plugin name="systemcode_customeridentitybrazil_template"
+                type="SystemCode\CustomerIdentityBrazil\Plugin\Block\Template\CustomerIdentityPlugin"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="systemcode_customeridentitybrazil_customer_save"
+                type="SystemCode\CustomerIdentityBrazil\Plugin\Customer\SavePlugin"
+                sortOrder="20"/>
+    </type>
+    <type name="Magento\Quote\Model\CustomerManagement">
+        <plugin name="systemcode_customeridentitybrazil_quote_customer"
+                type="SystemCode\CustomerIdentityBrazil\Plugin\Quote\CustomerManagementPlugin"
+                sortOrder="20"/>
+    </type>
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <plugin name="systemcode_customeridentitybrazil_quote_submit"
+                type="SystemCode\CustomerIdentityBrazil\Plugin\Quote\QuoteManagementPlugin"
+                sortOrder="20"/>
+    </type>
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="systemcode_customeridentitybrazil_order_extension"
+                type="SystemCode\CustomerIdentityBrazil\Plugin\Api\OrderExtensionPlugin"
+                sortOrder="10"/>
+    </type>
+</config>
