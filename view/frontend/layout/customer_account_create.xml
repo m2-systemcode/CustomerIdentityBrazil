@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="SystemCode_CustomerIdentityBrazil::css/customer-identity.css"/>
+    </head>
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="systemcode.customeridentitybrazil.telephone.mask.register"
+                   template="SystemCode_CustomerIdentityBrazil::telephone-mask.phtml"
+                   ifconfig="customeridentitybrazil/general/enabled"/>
+        </referenceContainer>
+        <referenceBlock name="customer_form_register">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="brazil.customer.identity.toggle"
+                   as="customer.register.before.name"
+                   template="SystemCode_CustomerIdentityBrazil::identity/toggle.phtml">
+                <arguments>
+                    <argument name="view_model"
+                              xsi:type="object">SystemCode\CustomerIdentityBrazil\ViewModel\CustomerIdentity</argument>
+                </arguments>
+            </block>
+            <container name="fieldset.create.info.additional" as="fieldset_create_info_additional">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="brazil.customer.identity.fields"
+                       template="SystemCode_CustomerIdentityBrazil::identity/fields-content.phtml">
+                    <arguments>
+                        <argument name="view_model"
+                              xsi:type="object">SystemCode\CustomerIdentityBrazil\ViewModel\CustomerIdentity</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customeridentitybrazil>
+            <general>
+                <enabled>0</enabled>
+                <customer_edit></customer_edit>
+                <customer_group_individual></customer_group_individual>
+                <customer_group_corporation></customer_group_corporation>
+            </general>
+            <individual>
+                <taxvat></taxvat>
+                <rg></rg>
+            </individual>
+            <corporation>
+                <taxvat></taxvat>
+                <ie></ie>
+            </corporation>
+        </customeridentitybrazil>
+    </default>
+</config>

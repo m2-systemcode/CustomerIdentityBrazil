@@ -1,0 +1,59 @@
+"Customer Identity (Brazil)","Customer Identity (Brazil)"
+"Enhanced Edition","Enhanced Edition"
+"This base module stores CPF/CNPJ in Tax/VAT and company names
+in First Name / Last Name.
+To use separate CPF, CNPJ, Social Name and Trade Name fields with optional sync to core attributes,
+install SystemCode_CustomerIdentityBrazilEnhanced from https://github.com/m2-systemcode/CustomerIdentityBrazilEnhanced","This base module stores CPF/CNPJ in Tax/VAT and company names
+in First Name / Last Name.
+To use separate CPF, CNPJ, Social Name and Trade Name fields with optional sync to core attributes,
+install SystemCode_CustomerIdentityBrazilEnhanced from https://github.com/m2-systemcode/CustomerIdentityBrazilEnhanced"
+"General","General"
+"Uses Magento Tax/VAT for CPF/CNPJ and First Name / Last Name
+for individual or company names.
+Enable Tax/VAT in Stores > Configuration > Customers > Customer Configuration > Name and Address Options.","Uses Magento Tax/VAT for CPF/CNPJ and First Name / Last Name
+for individual or company names.
+Enable Tax/VAT in Stores > Configuration > Customers > Customer Configuration > Name and Address Options."
+"Enable","Enable"
+"Enable Brazilian customer identity fields and validation on the storefront.","Enable Brazilian customer identity fields and validation on the storefront."
+"Customer Can Edit","Customer Can Edit"
+"Choose which fields the customer can edit after the account is created.","Choose which fields the customer can edit after the account is created."
+"Yes, except change person type","Yes, except change person type"
+"Yes, and allow change person type","Yes, and allow change person type"
+"Customer Group (Individual)","Customer Group (Individual)"
+"Assign individual customers to this group.","Assign individual customers to this group."
+"Customer Group (Corporation)","Customer Group (Corporation)"
+"Assign corporation customers to this group.","Assign corporation customers to this group."
+"Individual (CPF)","Individual (CPF)"
+"CPF is stored in the native Tax/VAT customer attribute.
+First Name and Last Name keep the standard individual labels.","CPF is stored in the native Tax/VAT customer attribute.
+First Name and Last Name keep the standard individual labels."
+"CPF (Tax/VAT)","CPF (Tax/VAT)"
+"Visibility and validation for CPF using the Tax/VAT field.","Visibility and validation for CPF using the Tax/VAT field."
+"RG","RG"
+"Visibility and validation for the RG customer attribute.","Visibility and validation for the RG customer attribute."
+"Corporation (CNPJ)","Corporation (CNPJ)"
+"CNPJ is stored in the native Tax/VAT customer attribute.
+First Name is used as Social Name (Razão Social) and Last Name as Trade Name (Nome Fantasia).","CNPJ is stored in the native Tax/VAT customer attribute.
+First Name is used as Social Name (Razão Social) and Last Name as Trade Name (Nome Fantasia)."
+"CNPJ (Tax/VAT)","CNPJ (Tax/VAT)"
+"Visibility and validation for CNPJ using the Tax/VAT field.","Visibility and validation for CNPJ using the Tax/VAT field."
+"IE","IE"
+"Visibility and validation for the IE customer attribute.","Visibility and validation for the IE customer attribute."
+"No","No"
+"Optional","Optional"
+"Required","Required"
+"Optional and Unique","Optional and Unique"
+"Required and Unique","Required and Unique"
+"Individual Person","Individual Person"
+"Corporation","Corporation"
+"Social Name","Social Name"
+"Trade Name","Trade Name"
+"CPF","CPF"
+"CNPJ","CNPJ"
+"Please enter a valid CPF.","Please enter a valid CPF."
+"Please enter a valid CNPJ.","Please enter a valid CNPJ."
+"CPF is invalid.","CPF is invalid."
+"CNPJ is invalid.","CNPJ is invalid."
+"Tax/VAT is a required field.","Tax/VAT is a required field."
+"%1 is a required field.","%1 is a required field."
+"%1 is invalid.","%1 is invalid."

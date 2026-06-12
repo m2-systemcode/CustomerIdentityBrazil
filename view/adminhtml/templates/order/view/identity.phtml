@@ -1,0 +1,9 @@
+<?php
+$viewModel = $block->getViewModel();
+?>
+<?php foreach ($viewModel->getIdentityRows() as $row): ?>
+    <tr>
+        <th><?= $escaper->escapeHtml($row['label']) ?></th>
+        <td><?= $escaper->escapeHtml($row['value']) ?></td>
+    </tr>
+<?php endforeach; ?>

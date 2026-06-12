@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote">
+        <column xsi:type="varchar" name="person_type" nullable="true" length="10" comment="Person Type"/>
+        <column xsi:type="varchar" name="rg" nullable="true" length="32" comment="RG"/>
+        <column xsi:type="varchar" name="ie" nullable="true" length="32" comment="IE"/>
+    </table>
+    <table name="sales_order">
+        <column xsi:type="varchar" name="person_type" nullable="true" length="10" comment="Person Type"/>
+        <column xsi:type="varchar" name="rg" nullable="true" length="32" comment="RG"/>
+        <column xsi:type="varchar" name="ie" nullable="true" length="32" comment="IE"/>
+    </table>
+</schema>

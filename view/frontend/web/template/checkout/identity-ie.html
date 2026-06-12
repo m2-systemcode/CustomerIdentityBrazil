@@ -1,0 +1,12 @@
+<!-- ko if: showIe -->
+<div data-bind="attr: { class: 'field brazil-identity-ie' + (isIeRequired() ? ' _required required' : '') }">
+    <label class="label" for="checkout-ie"><span data-bind="i18n: 'IE'"></span></label>
+    <div class="control">
+        <input type="text"
+               id="checkout-ie"
+               name="checkout_ie"
+               class="input-text"
+               data-bind="value: ie, css: { 'required-entry': isIeRequired }, attr: { 'aria-required': isIeRequired }">
+    </div>
+</div>
+<!-- /ko -->
