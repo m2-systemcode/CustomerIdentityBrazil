@@ -28,6 +28,7 @@ Enable Tax/VAT under **Stores > Configuration > Customers > Customer Configurati
 
 ### Requirements
 
+- PHP 8.3, 8.4 or 8.5
 - `systemcode/base`
 - `systemcode/customer`
 - `magento/module-customer`
