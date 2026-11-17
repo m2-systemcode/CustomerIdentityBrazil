@@ -24,7 +24,7 @@ class Cnpj
     {
         $cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
 
-        if (strlen($cnpj) !== 14) {
+        if (strlen($cnpj) !== 14 || preg_match('/^(\d)\1{13}$/', $cnpj) === 1) {
             return false;
         }
 
