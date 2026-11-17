@@ -27,7 +27,7 @@ use SystemCode\CustomerIdentityBrazil\Model\Checkout\QuoteIdentity;
  */
 class QuoteManagementPlugin
 {
-    private const array ORDER_FIELDS = [
+    private const ORDER_FIELDS = [
         'person_type',
         'rg',
         'ie',

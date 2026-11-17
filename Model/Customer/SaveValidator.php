@@ -21,7 +21,7 @@ use SystemCode\CustomerIdentityBrazil\Model\Validator\Cpf;
 
 class SaveValidator
 {
-    private const array ATTRIBUTE_CODES = [
+    private const ATTRIBUTE_CODES = [
         'person_type',
         'rg',
         'ie',

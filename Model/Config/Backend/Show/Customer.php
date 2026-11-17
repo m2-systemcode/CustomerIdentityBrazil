@@ -12,12 +12,63 @@ declare(strict_types=1);
 
 namespace SystemCode\CustomerIdentityBrazil\Model\Config\Backend\Show;
 
+use Magento\Config\App\Config\Source\ModularConfigSource;
 use Magento\Customer\Model\Config\Backend\Show\Customer as MagentoCustomerShow;
+use Magento\Customer\Model\ResourceModel\Attribute as AttributeResource;
+use Magento\Eav\Model\Config as EavConfig;
 use Magento\Framework\App\Cache\Type\Config as ConfigCache;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\Cache\TypeListInterface;
+use Magento\Framework\Data\Collection\AbstractDb;
+use Magento\Framework\Model\Context;
+use Magento\Framework\Model\ResourceModel\AbstractResource;
+use Magento\Framework\Registry;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Customer extends MagentoCustomerShow
 {
+    /**
+     * Initialize dependencies.
+     *
+     * @param Context $context
+     * @param Registry $registry
+     * @param ScopeConfigInterface $config
+     * @param TypeListInterface $cacheTypeList
+     * @param StoreManagerInterface $storeManager
+     * @param EavConfig $eavConfig
+     * @param AttributeResource $attributeResource
+     * @param AbstractResource|null $resource
+     * @param AbstractDb|null $resourceCollection
+     * @param array $data
+     * @param ModularConfigSource|null $configSource
+     */
+    public function __construct(
+        Context $context,
+        Registry $registry,
+        ScopeConfigInterface $config,
+        TypeListInterface $cacheTypeList,
+        StoreManagerInterface $storeManager,
+        EavConfig $eavConfig,
+        private readonly AttributeResource $attributeResource,
+        ?AbstractResource $resource = null,
+        ?AbstractDb $resourceCollection = null,
+        array $data = [],
+        ?ModularConfigSource $configSource = null
+    ) {
+        parent::__construct(
+            $context,
+            $registry,
+            $config,
+            $cacheTypeList,
+            $storeManager,
+            $eavConfig,
+            $resource,
+            $resourceCollection,
+            $data,
+            $configSource
+        );
+    }
+
     /**
      * Retrieve value config map.
      *
@@ -82,9 +133,9 @@ class Customer extends MagentoCustomerShow
 
             foreach ($this->_getAttributeObjects() as $attributeObject) {
                 $attributeObject->setWebsite($website);
-                $attributeObject->load($attributeObject->getId());
+                $this->attributeResource->load($attributeObject, $attributeObject->getId());
                 $attributeObject->setData('scope_is_required', 0);
-                $attributeObject->save();
+                $this->attributeResource->save($attributeObject);
             }
 
             return $this;
@@ -117,13 +168,13 @@ class Customer extends MagentoCustomerShow
         foreach ($this->_getAttributeObjects() as $attributeObject) {
             if ($website) {
                 $attributeObject->setWebsite($website);
-                $attributeObject->load($attributeObject->getId());
+                $this->attributeResource->load($attributeObject, $attributeObject->getId());
             }
 
             $attributeObject->setData($dataFieldPrefix . 'is_required', 0);
             $attributeObject->setData($dataFieldPrefix . 'is_visible', $data['is_visible']);
             $attributeObject->setData($dataFieldPrefix . 'is_unique', $data['is_unique']);
-            $attributeObject->save();
+            $this->attributeResource->save($attributeObject);
         }
     }
 }

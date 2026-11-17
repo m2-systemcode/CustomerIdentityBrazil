@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace SystemCode\CustomerIdentityBrazil\Setup\Patch\Data;
 
 use Magento\Customer\Model\Customer;
+use Magento\Customer\Model\ResourceModel\Attribute as AttributeResource;
 use Magento\Customer\Setup\CustomerSetupFactory;
 use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -20,7 +21,7 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 
 class AddCustomerIdentityAttributes implements DataPatchInterface
 {
-    private const array USED_IN_FORMS = [
+    private const USED_IN_FORMS = [
         'adminhtml_customer',
         'checkout_register',
         'customer_account_create',
@@ -28,7 +29,7 @@ class AddCustomerIdentityAttributes implements DataPatchInterface
         'adminhtml_checkout',
     ];
 
-    private const array ATTRIBUTES = [
+    private const ATTRIBUTES = [
         'person_type' => [
             'label' => 'Person Type',
             'position' => 900,
@@ -49,11 +50,13 @@ class AddCustomerIdentityAttributes implements DataPatchInterface
      * @param ModuleDataSetupInterface $moduleDataSetup
      * @param CustomerSetupFactory $customerSetupFactory
      * @param AttributeSetFactory $attributeSetFactory
+     * @param AttributeResource $attributeResource
      */
     public function __construct(
         private readonly ModuleDataSetupInterface $moduleDataSetup,
         private readonly CustomerSetupFactory $customerSetupFactory,
-        private readonly AttributeSetFactory $attributeSetFactory
+        private readonly AttributeSetFactory $attributeSetFactory,
+        private readonly AttributeResource $attributeResource
     ) {
     }
 
@@ -92,7 +95,7 @@ class AddCustomerIdentityAttributes implements DataPatchInterface
                 'attribute_group_id' => $attributeGroupId,
                 'used_in_forms' => self::USED_IN_FORMS,
             ]);
-            $attribute->save();
+            $this->attributeResource->save($attribute);
         }
 
         $this->moduleDataSetup->getConnection()->endSetup();
