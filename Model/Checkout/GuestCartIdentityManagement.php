@@ -15,6 +15,7 @@ namespace SystemCode\CustomerIdentityBrazil\Model\Checkout;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Quote\Model\QuoteIdMaskFactory;
+use Magento\Quote\Model\ResourceModel\Quote\QuoteIdMask as QuoteIdMaskResource;
 use SystemCode\CustomerIdentityBrazil\Api\ConfigInterface;
 use SystemCode\CustomerIdentityBrazil\Api\Data\QuoteIdentityDataInterface;
 use SystemCode\CustomerIdentityBrazil\Api\GuestCartIdentityManagementInterface;
@@ -28,12 +29,14 @@ class GuestCartIdentityManagement implements GuestCartIdentityManagementInterfac
      * @param CartRepositoryInterface $quoteRepository
      * @param QuoteIdMaskFactory $quoteIdMaskFactory
      * @param QuoteIdentity $quoteIdentity
+     * @param QuoteIdMaskResource $quoteIdMaskResource
      */
     public function __construct(
         private readonly ConfigInterface $config,
         private readonly CartRepositoryInterface $quoteRepository,
         private readonly QuoteIdMaskFactory $quoteIdMaskFactory,
-        private readonly QuoteIdentity $quoteIdentity
+        private readonly QuoteIdentity $quoteIdentity,
+        private readonly QuoteIdMaskResource $quoteIdMaskResource
     ) {
     }
 
@@ -46,7 +49,8 @@ class GuestCartIdentityManagement implements GuestCartIdentityManagementInterfac
             return false;
         }
 
-        $quoteIdMask = $this->quoteIdMaskFactory->create()->load($cartId, 'masked_id');
+        $quoteIdMask = $this->quoteIdMaskFactory->create();
+        $this->quoteIdMaskResource->load($quoteIdMask, $cartId, 'masked_id');
         if (!$quoteIdMask->getQuoteId()) {
             throw new NoSuchEntityException(__('Cart not found.'));
         }

@@ -14,40 +14,40 @@ namespace SystemCode\CustomerIdentityBrazil\Api;
 
 interface ConfigInterface
 {
-    public const string XML_PATH_ENABLED = 'customeridentitybrazil/general/enabled';
-    public const string XML_PATH_CUSTOMER_EDIT = 'customeridentitybrazil/general/customer_edit';
-    public const string XML_PATH_GROUP_INDIVIDUAL = 'customeridentitybrazil/general/customer_group_individual';
-    public const string XML_PATH_GROUP_CORPORATION = 'customeridentitybrazil/general/customer_group_corporation';
-    public const string XML_PATH_FIELD = 'customeridentitybrazil/%s/%s';
-    public const array FIELD_CODES = ['rg', 'ie', 'taxvat'];
-    public const array QUOTE_FIELDS = [
+    public const XML_PATH_ENABLED = 'customeridentitybrazil/general/enabled';
+    public const XML_PATH_CUSTOMER_EDIT = 'customeridentitybrazil/general/customer_edit';
+    public const XML_PATH_GROUP_INDIVIDUAL = 'customeridentitybrazil/general/customer_group_individual';
+    public const XML_PATH_GROUP_CORPORATION = 'customeridentitybrazil/general/customer_group_corporation';
+    public const XML_PATH_FIELD = 'customeridentitybrazil/%s/%s';
+    public const FIELD_CODES = ['rg', 'ie', 'taxvat'];
+    public const QUOTE_FIELDS = [
         'person_type',
         'rg',
         'ie',
         'taxvat',
     ];
-    public const string IDENTITY_TOGGLE_COMPONENT =
+    public const IDENTITY_TOGGLE_COMPONENT =
         'SystemCode_CustomerIdentityBrazil/js/view/checkout/identity-toggle';
-    public const string IDENTITY_TOGGLE_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-toggle';
-    public const string IDENTITY_TAXVAT_COMPONENT =
+    public const IDENTITY_TOGGLE_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-toggle';
+    public const IDENTITY_TAXVAT_COMPONENT =
         'SystemCode_CustomerIdentityBrazil/js/view/checkout/identity-taxvat';
-    public const string IDENTITY_TAXVAT_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-taxvat';
-    public const string IDENTITY_RG_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/view/checkout/identity-rg';
-    public const string IDENTITY_RG_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-rg';
-    public const string IDENTITY_IE_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/view/checkout/identity-ie';
-    public const string IDENTITY_IE_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-ie';
-    public const string IDENTITY_FIELD_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/checkout/identity-field';
-    public const string IDENTITY_TAXVAT_FIELD_COMPONENT =
+    public const IDENTITY_TAXVAT_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-taxvat';
+    public const IDENTITY_RG_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/view/checkout/identity-rg';
+    public const IDENTITY_RG_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-rg';
+    public const IDENTITY_IE_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/view/checkout/identity-ie';
+    public const IDENTITY_IE_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/identity-ie';
+    public const IDENTITY_FIELD_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/checkout/identity-field';
+    public const IDENTITY_TAXVAT_FIELD_COMPONENT =
         'SystemCode_CustomerIdentityBrazil/js/checkout/identity-taxvat-field';
-    public const string TELEPHONE_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/checkout/telephone';
-    public const string TELEPHONE_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/telephone';
-    public const array BLOCK_NAMES = [
+    public const TELEPHONE_COMPONENT = 'SystemCode_CustomerIdentityBrazil/js/checkout/telephone';
+    public const TELEPHONE_TEMPLATE = 'SystemCode_CustomerIdentityBrazil/checkout/telephone';
+    public const BLOCK_NAMES = [
         'brazil.customer.identity.toggle',
         'brazil.customer.identity.fields',
         'brazil.customer.identity.toggle.edit',
         'brazil.customer.identity.fields.edit',
     ];
-    public const array INVALID_CPF_SEQUENCES = [
+    public const INVALID_CPF_SEQUENCES = [
         '00000000000', '11111111111', '22222222222', '33333333333', '44444444444',
         '55555555555', '66666666666', '77777777777', '88888888888', '99999999999',
     ];

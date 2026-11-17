@@ -20,7 +20,7 @@ use Magento\Sales\Model\Order;
 
 class OrderExtensionPlugin
 {
-    private const array ORDER_FIELDS = [
+    private const ORDER_FIELDS = [
         'person_type' => 'person_type',
         'rg' => 'rg',
         'ie' => 'ie',

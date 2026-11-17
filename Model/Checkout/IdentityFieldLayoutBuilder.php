@@ -16,7 +16,7 @@ use SystemCode\CustomerIdentityBrazil\Api\ConfigInterface;
 
 class IdentityFieldLayoutBuilder
 {
-    public const string SCOPE = 'brazilIdentity';
+    public const SCOPE = 'brazilIdentity';
 
     /**
      * Apply provider defaults.

@@ -29,7 +29,7 @@ use SystemCode\CustomerIdentityBrazil\Model\Checkout\QuoteIdentity;
  */
 class ShippingInformationManagementPlugin
 {
-    private const array EXTENSION_FIELDS = [
+    private const EXTENSION_FIELDS = [
         'person_type',
         'rg',
         'ie',
